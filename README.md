@@ -1,4 +1,5 @@
 **AI Engineering Copilot using Spring AI + Ollama + pgvector**
+
 Architecture Diagram
 <img width="1024" height="1536" alt="Design flow" src="https://github.com/user-attachments/assets/289471bf-622f-43ec-8938-b7c16ef8ec13" />
 ## Architecture
