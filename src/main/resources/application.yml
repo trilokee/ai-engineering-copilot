@@ -15,6 +15,9 @@ spring:
       chat:
         options:
           model: phi3
+      embedding:
+        options:
+          model: nomic-embed-text
 
 management:
   endpoints:

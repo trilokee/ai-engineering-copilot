@@ -174,3 +174,11 @@ Future Roadmap
 - Streaming LLM responses
 - Observability dashboards (Grafana)
 - AI agents for debugging production issues
+
+#Implement the RAG Pipeline
+RAG has 4 stages:
+1️⃣ Ingest documents
+2️⃣ Generate embeddings
+3️⃣ Store vectors in pgvector
+4️⃣ Retrieve similar documents
+5️⃣ Send context to LLM
