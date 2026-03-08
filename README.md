@@ -195,3 +195,53 @@ aicopilot=#
 
 #end point for local test
 ![img_1.png](img_1.png)
+
+#how to add document chunks in vector db?
+open docker desktop and open cmd terminal and run below command
+docker exec -it pgvector psql -U postgres -d aicopilot
+
+#verify if table is present
+docker exec -it pgvector psql -U postgres -d aicopilot
+#insert test data
+INSERT INTO document_chunks (content, embedding)
+VALUES
+('Spring Boot is a Java framework for building microservices.', '[0.1,0.2,0.3,0.4]'),
+('pgvector enables vector similarity search in PostgreSQL.', '[0.2,0.1,0.5,0.6]');
+
+#note:(For quick testing the vector length doesn't matter; later your embedding service will insert real 768-dim vectors.)
+
+SELECT * FROM document_chunks;
+or ingest doc from api
+![img_2.png](img_2.png)
+
+#once ingestion done then ask question with ask api
+![Screenshot 2026-03-09 001832.png](../../OneDrive/Pictures/Screenshots/Screenshot%202026-03-09%20001832.png)
+
+#at this point this is the flow diagram
+          +----------------+
+          |   Documents    |
+          +--------+-------+
+                   |
+                   v
+         DocumentIngestionService
+                   |
+                   v
+         EmbeddingService
+         (nomic-embed-text)
+                   |
+                   v
+            PostgreSQL
+             + pgvector
+                   |
+                   v
+          VectorSearchService
+                   |
+                   v
+             RagService
+                   |
+                   v
+               Ollama
+                phi3
+                   |
+                   v
+              Final Answer
