@@ -21,7 +21,7 @@ public class VectorSearchService {
         FROM document_chunks
         WHERE embedding IS NOT NULL
         ORDER BY embedding <-> ?::vector
-        LIMIT 3
+        LIMIT 5
         """;
 
         String vector = java.util.Arrays.toString(embedding);

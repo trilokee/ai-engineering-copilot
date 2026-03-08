@@ -192,3 +192,6 @@ Run:
 docker exec -it pgvector psql -U postgres -d aicopilot
 output:
 aicopilot=#
+
+#end point for local test
+![img_1.png](img_1.png)
