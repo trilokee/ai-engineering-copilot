@@ -182,3 +182,13 @@ RAG has 4 stages:
 3️⃣ Store vectors in pgvector
 4️⃣ Retrieve similar documents
 5️⃣ Send context to LLM
+
+#ollama list
+ollama list
+![img.png](img.png)
+
+Connect to the Docker Database
+Run:
+docker exec -it pgvector psql -U postgres -d aicopilot
+output:
+aicopilot=#
