@@ -1,4 +1,5 @@
 **AI Engineering Copilot using Spring AI + Ollama + pgvector**
+
 Tech Stack: Java 21, Spring Boot, Spring AI, Ollama, PostgreSQL (pgvector), REST APIs, RAG Architecture, Vector Search
 
 
