@@ -3,6 +3,7 @@ package com.aicopilot.rag;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -16,15 +17,13 @@ public class VectorSearchService {
 
     public List<String> searchSimilar(float[] embedding) {
 
-        String sql = """
-        SELECT content
-        FROM document_chunks
-        WHERE embedding IS NOT NULL
-        ORDER BY embedding <-> ?::vector
-        LIMIT 5
-        """;
+        String sql = "SELECT content\n" +
+                     "FROM document_chunks\n" +
+                     "WHERE embedding IS NOT NULL\n" +
+                     "ORDER BY embedding <-> ?::vector\n" +
+                     "LIMIT 5\n";
 
-        String vector = java.util.Arrays.toString(embedding);
+        String vector = Arrays.toString(embedding);
 
         return jdbcTemplate.queryForList(sql, String.class, vector);
     }

@@ -245,3 +245,6 @@ or ingest doc from api
                    |
                    v
               Final Answer
+##useful query
+SELECT count(*)
+FROM document_chunks;
